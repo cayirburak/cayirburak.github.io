@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="mylife.css" />
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    </head>
+    
+    <body>
+        <div class='canvas'>
+            <div class='scroll'>
+              <div class='title'>
+                Elif'e
+                <small>
+                          Burak'dan
+                </small>
+              </div>
+              <div class='content'></div>
+            </div>
+          </div>
+          <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+var p = $('.content');
+p.text('');
+
+inc(p);
+});
+
+
+var text = `Ötesi var mıdır gözlerinin <
+Var mıdır daha derini bakışlarının {1} <
+Hangi hilal erişebilir şekline kaşlarının  <
+Cevapsız sorular bitermi mevzu sen iken {1} <
+< <
+Gülüşünü görünce utanırmı ben güzelim diyen <
+Kalbinin güzelliği bu kadar yüzüne yansımışken{1} <
+Gerçi göz dayanırmı güzelliğini anlayana kadar <
+Anladım zannetsede algısı yetmezki neye yarar {1} <
+< <
+Dağlar yerinden oynamış veya dudakların <
+Farketmiyor yüreğimin içindeki depremi hissedince {1} <
+Ah o bakışların yokmu cereyan eden ansızın <
+Çarpıyor bedenimi içime işliyor ince ince {1} <
+< <
+Bir yürüyüş bir gülüş böylemi yakışır <
+Üstüne o ses kadife gibi serilir güzelliğine {1} <
+Bir insan nasıl kıyar sana dokunmaya <
+Bilmez miki bu güneşe doğru uçmaya benzer {2} <
+< <
+The End.`;
+
+var i = 0;
+var j = 0;
+
+function inc(p) {
+var interval = .12;
+var array = text.split(/[\{\}]/); // Split on embraces
+
+if (i < array.length) {
+  const character = array[i].charAt(j) === '<' ? '<br/>' : array[i].charAt(j)
+p.append(character);
+  
+  console.log(array[i].charAt(j))
+
+if (j == array[i].length -1 && typeof array[i + 1] !== "undefined") {
+interval = array[i + 1];
+i += 2;
+j = 0;
+}
+
+j++;
+setTimeout(function () { inc(p); }, interval*500);
+}
+}
+    </script>
+    </body>
+</html>
+
+
+  
